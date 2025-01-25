@@ -1,33 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import React from 'react'
+import { useFormik } from 'formik'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const initialValues = {
+    name: '',
+    email: '',
+    password: '',
+    cpassword: ''
+  }
+
+  const {values, handleBlur, handleChange, handleSubmit} = useFormik({
+    initialValues,
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="app">
+        <form className="signup_form" onSubmit={handleSubmit}>
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" value={values.name} onBlur={handleBlur} onChange={handleChange}/>
+
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" value={values.email} onBlur={handleBlur} onChange={handleChange}/>
+
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" value={values.password} onBlur={handleBlur} onChange={handleChange}/>
+
+          <label htmlFor="cpassword">Confirm Password</label>
+          <input type="password" name="cpassword" value={values.cpassword} onBlur={handleBlur} onChange={handleChange}/>
+
+          <button type='submit'>Submit</button>
+          </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
