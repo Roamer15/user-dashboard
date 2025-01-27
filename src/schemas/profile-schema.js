@@ -2,7 +2,7 @@ import * as Yup from 'yup'
 
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 
-export const signupSchema = Yup.object({
+export const ProfileSchema = Yup.object({
     firstname: Yup.string().min(3).required("Please Enter your first name"),
     lastname: Yup.string().min(3).required("Please Enter your last name"),
     email: Yup.string().email("Please enter a valid email").required("Please Enter your email"),
