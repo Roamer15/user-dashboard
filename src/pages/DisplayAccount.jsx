@@ -11,9 +11,10 @@ function DisplayAccount() {
         <>
           <Banner />
         <div className="info">
-            <p><strong>Name</strong>: {accountInfo.name}</p>
+            <p><strong>First Name</strong>: {accountInfo.firstname}</p>
+            <p><strong>Last Name</strong>: {accountInfo.lastname}</p>
             <p><strong>Email</strong>: {accountInfo.email}</p>
-           
+            <p><strong>Phone Number</strong>: {accountInfo.telephone}</p>
             <button className='edit-info' onClick={update}>Update info</button>
         </div>
         </>

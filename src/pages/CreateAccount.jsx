@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router'
 
 function CreateAccount() {
   const initialValues = {
-     name: '',
+     firstname: '',
+     lastname: '',
      email: '',
+     telephone: '',
      password: '',
      cpassword: ''
    }
@@ -34,27 +36,45 @@ function CreateAccount() {
        <h1 className="sign-up">Welcome, sign Up</h1>
        <div className="app">
              <form className="signup_form" onSubmit={handleSubmit}>
-             <label htmlFor="name">Name</label>
-             <input type="text" name="name" value={values.name} onBlur={handleBlur} onChange={handleChange}/>
+
+             <label htmlFor="firstname">First Name</label>
+             <input type="text" name="firstname" value={values.firstname} onBlur={handleBlur} onChange={handleChange}/>
              <div className="error-container">
-             {errors.name && touched.name && <p className="form_error">{errors.name}</p>}
+             {errors.firstname && touched.firstname && <p className="form_error">{errors.firstname}</p>}
              </div>
+
+             <label htmlFor="lastname">Last Name</label>
+             <input type="text" name="lastname" value={values.lastname} onBlur={handleBlur} onChange={handleChange}/>
+             <div className="error-container">
+             {errors.lastname && touched.lastname && <p className="form_error">{errors.lastname}</p>}
+             </div>
+
              <label htmlFor="email">Email</label>
              <input type="email" name="email" value={values.email} onBlur={handleBlur} onChange={handleChange}/>
              <div className="error-container">
                {errors.email && touched.email && (<p className='form_error'>{errors.email}</p>)}
              </div>
+
+             <label htmlFor="telephone">Phone Number</label>
+             <input type="tel" name="telephone" value={values.telephone} onBlur={handleBlur} onChange={handleChange}/>
+             <div className="error-container">
+               {errors.telephone && touched.telephone && (<p className='form_error'>{errors.telephone}</p>)}
+             </div>
+
              <label htmlFor="password">Password</label>
              <input type="password" name="password" value={values.password} onBlur={handleBlur} onChange={handleChange}/>
              <div className="error-container">
                {errors.password && touched.password && (<p className='form_error'>{errors.password}</p>)}
              </div>
+
              <label htmlFor="cpassword">Confirm Password</label>
              <input type="password" name="cpassword" value={values.cpassword} onBlur={handleBlur} onChange={handleChange}/>
              <div className="error-container">
                {errors.cpassword && touched.cpassword && (<p className='form_error'>{errors.cpassword}</p>)}
              </div>
+
              <button type='submit' onClick={display}>Submit</button>
+
              </form>
        </div>
      </>
